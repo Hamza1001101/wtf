@@ -12,6 +12,6 @@ WORKDIR /app
 
 COPY --from=builder /app/target/*.jar wtf.jar
 
-EXPOSE 8082
+EXPOSE 8080
 
 ENTRYPOINT ["java", "-jar", "wtf.jar"]
