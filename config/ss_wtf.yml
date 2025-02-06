@@ -1,0 +1,24 @@
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  namespace: kianfarah-dev
+  name: wtf
+spec:
+  selector:
+    matchLabels:
+      app: wtf # has to match .spec.template.metadata.labels
+  serviceName: "wtf"
+  replicas: 2 # by default is 1
+
+  template:
+    metadata:
+      labels:
+        app: wtf # has to match .spec.selector.matchLabels
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: wtf
+          image: 'image-registry.openshift-image-registry.svc:5000/kianfarah-dev/wtf:latest'
+          ports:
+            - containerPort: 8082
