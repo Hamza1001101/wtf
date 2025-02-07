@@ -1,18 +1,18 @@
 kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
-  name: wtf
+  name: wtf-route
   namespace: kianfarah-dev
-
   labels:
     app: wtf
 spec:
-  host: wtf-kianfarah-dev.apps.rm2.thpm.p1.openshiftapps.com
   to:
     kind: Service
     name: wtf
     weight: 100
   port:
-    targetPort: 8080
+    targetPort: http
   tls:
     termination: edge
+wildcardPolicy: None
+

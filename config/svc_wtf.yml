@@ -6,9 +6,12 @@ metadata:
   labels:
     app: wtf
 spec:
-  ports:
-    - port: 80
-      name: wtf
-  clusterIP: None
   selector:
     app: wtf
+  ports:
+    - port: 8082
+      name: http
+      targetPort: 8082
+  clusterIP: None
+
+
